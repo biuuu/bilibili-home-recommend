@@ -3,7 +3,8 @@
 
 这是一个用户脚本，需要通过 [Violentmonkey](https://violentmonkey.github.io/get-it/) 或 Tampermonkey 扩展来安装。
 
-安装地址：https://bilibili.css.moe/bilibili-home-recommend.user.js
+安装地址：https://bilibili.css.moe/bilibili-home-recommend.user.js?v=20221212
 
-效果图：
+你可以一直点“换一换”按钮来刷新，效果图：
+
 ![](https://bilibili.css.moe/image.png)
