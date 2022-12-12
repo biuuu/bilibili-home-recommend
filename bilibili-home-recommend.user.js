@@ -6,7 +6,7 @@
 // @icon        https:////static.hdslb.com/mobile/img/512.png
 // @grant       none
 // @run-at      document-start
-// @version     1.4
+// @version     1.5
 // @author      biuuu
 // @description 把Bilibili首页推荐变成App推荐的形式
 // @license     MIT
@@ -47,9 +47,8 @@
         data.data.item = data.data.item.filter(video => {
           return video.bvid
         })
-        console.log(data.data.item)
+        return new Response(JSON.stringify(data))
       }
-      return new Response(JSON.stringify(data))
     }
     return response
   }
