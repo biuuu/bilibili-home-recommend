@@ -6,7 +6,7 @@
 // @icon        https:////static.hdslb.com/mobile/img/512.png
 // @grant       none
 // @run-at      document-start
-// @version     1.2
+// @version     1.4
 // @author      biuuu
 // @description 把Bilibili首页推荐变成App推荐的形式
 // @license     MIT
@@ -33,13 +33,24 @@
       args[0] = location.protocol + args[0]
     }
     const url = new URL(args[0])
-    if (isRecommApiURL(url)) {
+    const matched = isRecommApiURL(url)
+    if (matched) {
       url.searchParams.set('ps', '20')
-      url.searchParams.set('fresh_type', '5')
+      // url.searchParams.set('fresh_type', '5')
       url.searchParams.set('feed_version', 'V12')
       args[0] = url.toString()
     }
     const response = await originFetch(...args)
+    if (matched) {
+      const data = await response.json()
+      if (data.data?.item) {
+        data.data.item = data.data.item.filter(video => {
+          return video.bvid
+        })
+        console.log(data.data.item)
+      }
+      return new Response(JSON.stringify(data))
+    }
     return response
   }
 
