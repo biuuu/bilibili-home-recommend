@@ -4,9 +4,9 @@
 // @match       *://www.bilibili.com/
 // @match       *://www.bilibili.com/?*
 // @icon        https:////static.hdslb.com/mobile/img/512.png
-// @grant       none
+// @grant       GM_addStyle
 // @run-at      document-start
-// @version     1.5
+// @version     1.6
 // @author      biuuu
 // @description 把Bilibili首页推荐变成App推荐的形式
 // @license     MIT
@@ -15,13 +15,11 @@
 // @supportURL  https://github.com/biuuu/bilibili-home-recommend/issues
 // ==/UserScript==
 (function (global) {
-  const style = document.createElement('style')
-  style.textContent = `
+  GM_addStyle(`
   .recommended-container .container.refreshed > div {
     margin-top: 0 !important;
   }
-  `
-  document.head.appendChild(style)
+  `)
 
   const isRecommApiURL = (url) => {
     return url.pathname === '/x/web-interface/index/top/feed/rcmd' && url.searchParams.get('fresh_type') === '3'
