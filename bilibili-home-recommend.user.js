@@ -1,13 +1,18 @@
 // ==UserScript==
 // @name        Bilibili首页推荐
 // @namespace   https://github.com/biuuu
-// @match       https://www.bilibili.com/
+// @match       *://www.bilibili.com/
+// @match       *://www.bilibili.com/?*
 // @icon        https:////static.hdslb.com/mobile/img/512.png
 // @grant       none
 // @run-at      document-start
 // @version     1.2
 // @author      biuuu
 // @description 把Bilibili首页推荐变成App推荐的形式
+// @license     MIT
+// @updateURL   https://bilibili.css.moe/bilibili-home-recommend.user.js
+// @homepageURL https://github.com/biuuu/bilibili-home-recommend
+// @supportURL  https://github.com/biuuu/bilibili-home-recommend/issues
 // ==/UserScript==
 (function (global) {
   const style = document.createElement('style')
